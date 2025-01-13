@@ -7,7 +7,7 @@ export default function Empty({ text = "暂无数据", hasEmptyBg = true }) {
     <div className="hasEmptyBg ? 'emptyBg' : 'emptyNoBg'">
       <div className="contWrap">
         <div className="robot">
-          <img src={Img} />
+          <img src={Img} alt="" />
         </div>
         <div className="text">{text}</div>
       </div>

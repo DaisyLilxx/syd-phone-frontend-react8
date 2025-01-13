@@ -17,17 +17,15 @@ const http: AxiosInstance = axios.create({
     "Content-Type": "application/json",
   },
 });
-type stateHeaders = {
-  headerSlice: { headers: Headers };
-};
+
 // 请求拦截器
 http.interceptors.request.use(
   (config: AxiosRequestConfig) => {
     const headersData = store.getState()?.headerSlice;
-    console.log("headersData",headersData);
-    
+    console.log("headersData", headersData);
+
     // // 强制类型转换为 InternalAxiosRequestConfig
-     const internalConfig = config as InternalAxiosRequestConfig;
+    const internalConfig = config as InternalAxiosRequestConfig;
     // 如果需要确保 headers 存在
     internalConfig.headers = internalConfig.headers || {};
     const openId = headersData.headers.openId ? headersData.headers.openId : "";
@@ -50,7 +48,7 @@ http.interceptors.response.use(
   (response: AxiosResponse) => {
     // 根据你的 API 返回的格式进行调整
     if (response.status === 200) {
-      if (response.data.flag == "FAILURE") Toast.info(response.data.message);
+      if (response.data.flag === "FAILURE") Toast.info(response.data.message);
       return response.data;
     } else {
       return Promise.reject(response);

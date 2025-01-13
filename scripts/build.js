@@ -170,6 +170,7 @@ function build(previousFileSizes) {
         }
         return reject(new Error(messages.errors.join("\n\n")));
       }
+      //关闭eslint校验不通过报错导致build不成功
       // if (
       //   process.env.CI &&
       //   (typeof process.env.CI !== 'string' ||

@@ -40,7 +40,7 @@ export default function TabbarFun(props: Props) {
     >
       <Tabbar.Item className="index">
         <div className="flex-center">
-          {active == 0 ? (
+          {active === 0 ? (
             <img alt="" src={indexImg1} className="indexImg" />
           ) : (
             <img alt="" src={indexImg2} className="indexImg" />
@@ -50,7 +50,7 @@ export default function TabbarFun(props: Props) {
       </Tabbar.Item>
       <Tabbar.Item className="index">
         <div className="flex-center">
-          {active == 1 ? (
+          {active === 1 ? (
             <img alt="" src={indexImg3} className="indexImg2" />
           ) : (
             <img alt="" src={indexImg4} className="indexImg2" />
@@ -60,7 +60,7 @@ export default function TabbarFun(props: Props) {
       </Tabbar.Item>
       <Tabbar.Item className="index">
         <div className="flex-center">
-          {active == 2 ? (
+          {active === 2 ? (
             <img alt="" src={indexImg5} className="myImg" />
           ) : (
             <img alt="" src={indexImg6} className="myImg" />
