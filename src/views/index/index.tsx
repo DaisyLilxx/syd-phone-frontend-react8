@@ -16,7 +16,8 @@ import { useNavigate } from "react-router-dom";
 export default function Home() {
   const navigate = useNavigate();
   const tabBarIndex = 1;
-  const [active, setActive] = useState(0);
+  let active = 0;
+  // const [active, setActive] = useState(0);
   const demoList = [
     {
       menu: "外贸企业",

@@ -1,5 +1,3 @@
-import React from "react";
-import logo from "./logo.svg";
 import "~/assets/css/login.less";
 import "./App.css";
 import { useRoutes } from "react-router-dom";

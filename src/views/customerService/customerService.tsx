@@ -18,7 +18,7 @@ export default function CustomerService() {
           系统已为您分配专属数字金融顾问，订购过程中有任何疑问，可随时与我们取得联系
         </p>
         <div className="codeWrap">
-          <img src={Img} />
+          <img src={Img} alt="" />
         </div>
       </div>
     </div>

@@ -1,9 +1,9 @@
 import { useEffect, useState, useRef } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import { useTypedSelector } from "~/hook/hook";
 import { getItemValue, calculateResult } from "~/apis/api";
-import { Form, Button, Popup, Picker, Input } from "react-vant";
+import { Form, Button, Input } from "react-vant";
 import type { FormInstance } from "react-vant";
 // import { dealParamFromWxWebView } from '~/utils/common'
 import type { CalculateResultParam } from "~/types/index";
@@ -45,14 +45,14 @@ export default function CompleteMess() {
     countTime = window.setInterval(function () {
       timeVal--;
       setTime(timeVal);
-      if (time == 0) {
+      if (time === 0) {
         clearInterval(countTime!);
       }
     }, 1000);
     calculateResult(formData)
       .then((res) => {
         console.log("calculateResult-res", res);
-        if (res.data && res.flag == "SUCCESS") {
+        if (res.data && res.flag === "SUCCESS") {
           if (countTime) clearInterval(countTime!);
           navigate("/result");
         }
@@ -71,7 +71,7 @@ export default function CompleteMess() {
   }, []);
   // setContactData 设置新值后不能马上获取，需要useEffect监听并执行回调
   useEffect(() => {
-    if (JSON.stringify(contactData) != "{}") {
+    if (JSON.stringify(contactData) !== "{}") {
       if (contactData["MV1018"]) setIsShow1018(true);
       if (contactData["MV1017"]) setIsShow1017(true);
       if (contactData["MV1016"]) setIsShow1016(true);
@@ -238,7 +238,7 @@ export default function CompleteMess() {
                 ) : (
                   ""
                 )}
-                {isShow1017 && contactData["MV1017"] == "涉及进出口贸易" ? (
+                {isShow1017 && contactData["MV1017"] === "涉及进出口贸易" ? (
                   <Form.Item
                     className="comFieldInp"
                     v-model="formData.lastYearImportExportTradeAmount"
@@ -264,7 +264,7 @@ export default function CompleteMess() {
                 ) : (
                   ""
                 )}
-                {isShow1016 && contactData["MV1016"] == "有品牌经销权" ? (
+                {isShow1016 && contactData["MV1016"] === "有品牌经销权" ? (
                   <Form.Item
                     className="comFieldInp"
                     v-model="formData.distributorMonthlyPurchaseAmount"
@@ -290,7 +290,7 @@ export default function CompleteMess() {
                 ) : (
                   ""
                 )}
-                {isShow1016 && contactData["MV1016"] == "有品牌经销权" ? (
+                {isShow1016 && contactData["MV1016"] === "有品牌经销权" ? (
                   <Form.Item
                     v-model="formData.purchaseToPaymentTime"
                     name="purchaseToPaymentTime"
@@ -314,7 +314,7 @@ export default function CompleteMess() {
                 ) : (
                   ""
                 )}
-                {isShow1001 && contactData["MV1001"] == "线上电商平台销售" ? (
+                {isShow1001 && contactData["MV1001"] === "线上电商平台销售" ? (
                   <Form.Item
                     className="comFieldInp"
                     v-model="formData.averageMonthlyReceivableB2B"
@@ -340,7 +340,7 @@ export default function CompleteMess() {
                 ) : (
                   ""
                 )}
-                {isShow1001 && contactData["MV1001"] == "线上电商平台销售" ? (
+                {isShow1001 && contactData["MV1001"] === "线上电商平台销售" ? (
                   <Form.Item
                     className="comFieldInp"
                     v-model="formData.averageMonthlyReceivableB2C"
@@ -379,6 +379,7 @@ export default function CompleteMess() {
             <img
               src="https://static.dstp.com.cn/img/loading.gif"
               className="loadImg"
+              alt=""
             />
             <h2 className="tit">额度测算中</h2>
             <div className="text">

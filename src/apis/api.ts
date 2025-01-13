@@ -1,5 +1,4 @@
 import request from "./request";
-import { AxiosResponse } from "axios";
 import type {
   MatchProductParam,
   MobileParam,
@@ -8,7 +7,6 @@ import type {
   CalculateResultParam,
   BaseRes,
   Item,
-  SubItem,
   MatchProductRes,
   MatchProduct,
   resultRes,
