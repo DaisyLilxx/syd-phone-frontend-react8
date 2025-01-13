@@ -1,18 +1,20 @@
-import "../../assets/css/index.less";
-import Tabbar from "~@/components/tabbar";
+import TabbarFun from "~/components/tabbar";
 // 1. 引入你需要的组件
 import { Tabs } from "react-vant";
 import { useState } from "react";
-import logo from "~@/assets/images/index/font.png";
-import mapImg from "~@/assets/images/index/home_tableview@2x.png";
-import company from "~@/assets/images/index/company.png";
-import icon1 from "~@/assets/images/index/icon_1.png";
-import icon6 from "~@/assets/images/index/icon_6.png";
-import icon2 from "~@/assets/images/index/icon_2.png";
-import icon3 from "~@/assets/images/index/icon_3.png";
-import icon4 from "~@/assets/images/index/icon_4.png";
-import icon5 from "~@/assets/images/index/icon_5.png";
+import logo from "~/assets/images/index/font.png";
+import mapImg from "~/assets/images/index/home_tableview@2x.png";
+import company from "~/assets/images/index/company.png";
+import icon1 from "~/assets/images/index/icon_1.png";
+import icon6 from "~/assets/images/index/icon_6.png";
+import icon2 from "~/assets/images/index/icon_2.png";
+import icon3 from "~/assets/images/index/icon_3.png";
+import icon4 from "~/assets/images/index/icon_4.png";
+import icon5 from "~/assets/images/index/icon_5.png";
+import "../../assets/css/index.less";
+import { useNavigate } from "react-router-dom";
 export default function Home() {
+  const navigate = useNavigate();
   const tabBarIndex = 1;
   const [active, setActive] = useState(0);
   const demoList = [
@@ -52,9 +54,11 @@ export default function Home() {
       icon: "",
     },
   ];
-  const goTest = () => {};
+  const goTest = () => {
+    navigate("/limitCalculationEdit");
+  };
   return (
-    <div className="index pageBg">
+    <div className="pageBg index ">
       <section className="top">
         <img alt="logo" src={logo} className="logo" />
         <h2 className="head">数据要素 x 金融服务</h2>
@@ -91,7 +95,7 @@ export default function Home() {
           title-active-color="#1F66FB"
         >
           {demoList.map((item, index) => (
-            <Tabs.TabPane title={item.menu} key={index} title-class="tabTit">
+            <Tabs.TabPane title={item.menu} key={index} titleClass="tabTit">
               <div className="tabCont">
                 <img alt="" src={company} className="img" />
                 <h2 className="tit">{item.tit}</h2>
@@ -133,7 +137,7 @@ export default function Home() {
           <span>©粤港澳国际供应链（广州）有限公司</span>
         </p>
       </section>
-      <Tabbar active={tabBarIndex}></Tabbar>
+      <TabbarFun active={tabBarIndex}></TabbarFun>
     </div>
   );
 }

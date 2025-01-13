@@ -2,14 +2,14 @@
   font-size: 50px;
   text-align: center;
   padding-top: 30vh;
-  .van-loading__spinner {
+  .rv-loading__spinner {
     width: 90px;
     height: 90px;
     text-align: center;
   }
 }
 .comSubBtn {
-  background: url(@/assets/images/limitCalculationEdit/btn_normal@2x.png) no-repeat;
+  background: url(../images/limitCalculationEdit/btn_normal@2x.png) no-repeat;
   background-size: 100%;
   height: 100px;
   line-height: 100px;
@@ -22,7 +22,7 @@
   border: none;
 }
 .comNormalSubBtn {
-  background: url(@/assets/images/login/able.png) no-repeat;
+  background: url(../images/login/able.png) no-repeat;
   background-size: 100%;
   height: 105px;
   line-height: 105px;
@@ -34,12 +34,12 @@
   text-align: center;
   border: none;
   &.comNormalSubBtnDisabled {
-    background: url(@/assets/images/login/disable.png) no-repeat;
+    background: url(../images/login/disable.png) no-repeat;
     background-size: 100%;
   }
 }
 .pageBg {
-  background: url(@/assets/images/index/home_bg01@2x.png) no-repeat;
+  background: url(../images/index/home_bg01@2x.png) no-repeat;
   background-size: 100% 866px;
   background-color: #fff;
   background-position: 0 -164px;
@@ -48,8 +48,8 @@
   height: 100%;
   min-height: 100vh;
 }
-.van-toast--text,
-.van-toast--html {
+.rv-toast--text,
+.rv-toast--html {
   font-size: 24px !important;
   padding: 20px !important;
 }
@@ -57,7 +57,7 @@
   position: relative;
 }
 .comWhiteBtn {
-  background: url(@/assets/images/result/jieguoye_btn_normal@2x.png) no-repeat;
+  background: url(../images/result/jieguoye_btn_normal@2x.png) no-repeat;
   background-size: 100% 104px;
   width: 100%;
   height: 104px;
@@ -68,7 +68,7 @@
   margin-top: 28px;
 }
 .comRightIcon {
-  background: url(@/assets/images/result/jieguoye_tab@2x.png) no-repeat;
+  background: url(../images/result/jieguoye_tab@2x.png) no-repeat;
   background-size: 100% 100%;
   min-width: 132px;
   height: 58px;
@@ -82,7 +82,7 @@
   text-align: center;
 }
 .comSelectC {
-  background: url(@/assets/images/completeMess/combo@2x.png) no-repeat;
+  background: url(../images/completeMess/combo@2x.png) no-repeat;
   background-size: 100% 100%;
   width: 552px;
   height: 80px;
@@ -97,7 +97,7 @@
     width: 100%;
   }
   .comArrow {
-    background: url(@/assets/images/completeMess/combo_bth@2x.png) no-repeat;
+    background: url(../images/completeMess/combo_bth@2x.png) no-repeat;
     background-size: cover;
     width: 24px;
     height: 24px;
@@ -107,7 +107,9 @@
 .comFormCont {
   padding: 48px 52px 52px;
   .comFieldInp {
-    padding: 28px 0 20px;
+   // padding: 28px 0 20px;
+    padding-top: 28px;
+    padding-bottom: 20px;
     // border-bottom: 2px solid #f1f1f1;
     font-weight: 600;
     font-size: 26px;
@@ -116,45 +118,45 @@
     &.noBor {
       border-bottom: none;
     }
-    .van-field__label {
+    .rv-field__label {
       margin-bottom: 24px;
     }
   }
-  .van-field__error-message {
+  .rv-field__error-message {
     font-size: 22px;
     line-height: 30px;
     color: #ec4545;
     font-weight: normal;
   }
-  .van-cell:after {
+  .rv-cell:after {
     border-bottom: 2px solid #f1f1f1;
   }
 }
-// van-popup 弹窗统一样式修改
-.comTimePickerC + .van-popup__close-icon--top-right,
-.van-popup__close-icon--top-right {
+// rv-popup 弹窗统一样式修改
+.comTimePickerC + .rv-popup__close-icon--top-right,
+.rv-popup__close-icon--top-right {
   top: 42px;
   right: 60px;
   font-size: 32px;
   color: #2b2b2b;
 }
 .comTimePickerC {
-  .van-picker__toolbar {
+  .rv-picker__toolbar {
     height: 80px;
   }
-  .van-picker__frame {
+  .rv-picker__frame {
     z-index: 1;
     background: #d1e0ff;
     left: 0;
     right: 0;
   }
-  .van-picker__mask {
+  .rv-picker__mask {
     z-index: 3;
   }
-  .van-picker-column {
+  .rv-picker-column {
     z-index: 2;
   }
-  .van-picker__title {
+  .rv-picker__title {
     width: 100%;
     text-align: center;
     font-size: 32px;
@@ -162,19 +164,19 @@
     line-height: 44px;
     padding-top: 32px;
   }
-  .van-picker__cancel,
-  .van-picker__confirm {
+  .rv-picker__cancel,
+  .rv-picker__confirm {
     font-size: 32px;
     padding: 10px 15px;
     height: auto;
   }
-  .van-picker-column {
+  .rv-picker-column {
     font-size: 32px;
   }
 }
 .comSelectInp {
-  .van-field__body {
-    background: url(@/assets/images/completeMess/combo@2x.png) no-repeat;
+  .rv-field__body {
+    background: url(../images/completeMess/combo@2x.png) no-repeat;
     background-size: 100% 100%;
     width: 100%;
     height: 80px;
@@ -192,8 +194,8 @@
     }
     &::after {
       display: inline-block;
-      content: '';
-      background: url(@/assets/images/completeMess/combo_bth@2x.png) no-repeat;
+      content: "";
+      background: url(../images/completeMess/combo_bth@2x.png) no-repeat;
       background-size: cover;
       width: 24px;
       height: 24px;
@@ -202,8 +204,8 @@
     }
   }
 }
-.van-button {
-  .van-button__loading .van-loading__spinner {
+.rv-button {
+  .rv-button__loading .rv-loading__spinner {
     width: 40px;
     height: 40px;
     line-height: 40px;

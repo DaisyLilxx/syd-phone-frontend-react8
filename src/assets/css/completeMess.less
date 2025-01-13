@@ -1,0 +1,78 @@
+.completeMess {
+    background-color: #f6f9fc;
+    padding-top: 0;
+    padding-bottom: 30px;
+    .main {
+      height: auto;
+      width: calc(100% - 32px);
+      margin: 0 auto;
+      margin-bottom: 24px;
+      .head {
+        padding-top: 54px;
+        text-align: center;
+        background: url(../images/limitCalculationEdit/bgTop.png) no-repeat;
+        background-size: 100%;
+        width: calc(100% - 32px);
+        height: 158px;
+        margin-bottom: -10px;
+        font-size: 30px;
+        color: #ffffff;
+        line-height: 42px;
+        padding-left: 32px;
+      }
+      .comFormCont {
+        padding-top: 20px;
+        background: #ffffff;
+        box-shadow: 0px 4px 12px 0px rgba(222, 222, 222, 0.5);
+        border-radius: 32px;
+      }
+    }
+  }
+  .completeMess2 {
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
+  .comSelectInp {
+    :deep(.van-field__body) {
+      width: 552px;
+    }
+    :deep(.van-field__value) {
+      &::after {
+        display: inline-block;
+        position: absolute;
+        content: '天';
+        font-size: 28px;
+        right: 0;
+        top: 16px;
+        line-height: 40px;
+      }
+    }
+  }
+  .submitLoading {
+    text-align: center;
+    width: calc(100% - 56px);
+    height: 1398px;
+    background: #ffffff;
+    box-shadow: 0px 4px 12px 0px rgba(222, 222, 222, 0.5);
+    border-radius: 32px;
+    margin: 0 auto;
+    padding-top: 198px;
+    .loadImg {
+      width: 385px;
+      margin: 0 auto 100px;
+    }
+    .tit {
+      font-weight: 600;
+      font-size: 44px;
+      line-height: 60px;
+      margin-bottom: 30px;
+    }
+    .text {
+      font-size: 28px;
+      color: #575757;
+      line-height: 40px;
+      span {
+        color: #fe2525;
+      }
+    }
+  }

@@ -1,11 +1,32 @@
 import { Tabbar } from "react-vant";
+import "~/assets/css/tabbar.less";
+import indexImg1 from "~/assets/images/index/index_active.png";
+import indexImg2 from "~/assets/images/index/2.png";
+import indexImg3 from "~/assets/images/tabIndex/11_active.png";
+import indexImg4 from "~/assets/images/tabIndex/11.png";
+import indexImg5 from "~/assets/images/index/1.png";
+import indexImg6 from "~/assets/images/index/person_normal.png";
+import { useNavigate } from "react-router-dom";
 interface Props {
   active: number | string;
 }
-export default function TabBar(props: Props) {
+export default function TabbarFun(props: Props) {
   const { active } = props;
+  let navigate = useNavigate();
   const onChangeFun = (index: number | string) => {
-    console.log(index);
+    console.log("index", index);
+    switch (index) {
+      case 0:
+        navigate("/tabIndex");
+        break;
+      case 1:
+        navigate("/");
+
+        break;
+      case 2:
+        navigate("/my");
+        break;
+    }
   };
   return (
     <Tabbar
@@ -19,52 +40,31 @@ export default function TabBar(props: Props) {
     >
       <Tabbar.Item className="index">
         <div className="flex-center">
-          <img
-            alt=""
-            v-if="active == 0"
-            src="~@/assets/images/index/index_active.png"
-            className="indexImg"
-          />
-          <img
-            alt=""
-            v-else
-            src="~@/assets/images/index/2.png"
-            className="indexImg"
-          />
+          {active == 0 ? (
+            <img alt="" src={indexImg1} className="indexImg" />
+          ) : (
+            <img alt="" src={indexImg2} className="indexImg" />
+          )}
         </div>
         <div>首页</div>
       </Tabbar.Item>
       <Tabbar.Item className="index">
         <div className="flex-center">
-          <img
-            alt=""
-            v-if="active == 1"
-            src="~@/assets/images/tabIndex/11_active.png"
-            className="indexImg2"
-          />
-          <img
-            alt=""
-            v-else
-            src="~@/assets/images/tabIndex/11.png"
-            className="indexImg2"
-          />
+          {active == 1 ? (
+            <img alt="" src={indexImg3} className="indexImg2" />
+          ) : (
+            <img alt="" src={indexImg4} className="indexImg2" />
+          )}
         </div>
         <div>数据信用评估额度</div>
       </Tabbar.Item>
-      <Tabbar.Item className="my">
+      <Tabbar.Item className="index">
         <div className="flex-center">
-          <img
-            alt=""
-            v-if="active == 2"
-            src="~@/assets/images/index/1.png"
-            className="myImg"
-          />
-          <img
-            alt=""
-            v-else
-            src="~@/assets/images/index/person_normal.png"
-            className="myImg"
-          />
+          {active == 2 ? (
+            <img alt="" src={indexImg5} className="myImg" />
+          ) : (
+            <img alt="" src={indexImg6} className="myImg" />
+          )}
         </div>
         <div>我的</div>
       </Tabbar.Item>

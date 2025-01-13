@@ -1,0 +1,137 @@
+.login {
+    background: url('https://static.dstp.com.cn/img/bg01@2x.png') no-repeat;
+    background-size: 100% 866px;
+    background-color: #fff;
+    background-position: 0 -164px;
+    padding-top: 66px;
+    padding-bottom: 14px;
+    .rv-cell--required::before{
+      display: none;
+    }
+    .rv-cell:after {
+      display: none;
+    }
+    .company {
+      margin: 10px 0 70px 66px;
+      width: 446px;
+      height: 106px;
+    }
+    .tit {
+      font-weight: 600;
+      font-size: 48px;
+      color: #001d3f;
+      line-height: 66px;
+      margin-left: 70px;
+    }
+    .main {
+      background: url(../images/login/loginBg.png) no-repeat;
+      background-size: 100% 1128px;
+      width: calc(100% - 32px);
+      margin: 0 auto;
+      height: 1128px;
+      padding: 106px 52px 20px;
+  
+      .fieldInp {
+        margin-bottom: 40px;
+        .rv-field__error-message{
+          font-size: 28px;
+          padding-top: 5px;
+          line-height: 35px;
+          padding-left: 108px;
+        }
+       .rv-field__body {
+          border-radius: 50px;
+          border: 2px solid #dbe5f9;
+          padding: 26px 48px 26px 108px;
+          font-size: 32px;
+          line-height: 44px;
+          position: relative;
+        }
+        &.phoneInp {
+          .rv-field__body {
+            &::before {
+              content: '';
+              display: inline-block;
+              width: 32px;
+              height: 32px;
+              background: url(../images/login/shouji-2@2x.png) no-repeat;
+              background-size: 100%;
+              position: absolute;
+              left: 54px;
+              top: 34px;
+            }
+          }
+        }
+        &.codeInp {
+          .rv-field__body {
+            &::before {
+              flex-shrink: 0;
+              content: '';
+              display: inline-block;
+              width: 32px;
+              height: 32px;
+              background: url(../images/login/yanzhengma@2x.png) no-repeat;
+              background-size: 100%;
+              position: absolute;
+              left: 54px;
+              top: 34px;
+            }
+          }
+        }
+      }
+      .p {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 24px;
+        color: #8b8b8b;
+        line-height: 32px;
+      }
+      .phoneIcon {
+      }
+      .codeIcon {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        background: url(../images/login/yanzhengma@2x.png) no-repeat;
+        background-size: 100%;
+      }
+      .codeBtn {
+        font-size: 28px;
+        color: #1f66fb;
+        line-height: 40px;
+        background: none;
+    border: none;
+        &.disableBtn {
+          color: #8b8b8b;
+        }
+      }
+     .rv-field__label {
+        width: auto;
+        display: flex;
+        align-items: center;
+      }
+      .checkWrap {
+        display: flex;
+        padding-left: 60px;
+        font-size: 24px;
+        color: #575757;
+        line-height: 34px;
+        margin-bottom: 148px;
+        .xy {
+          color: #1f66fb;
+        }
+      }
+      .comNormalSubBtn {
+        margin: 0;
+        width: 100%;
+        .actBtn {
+          background: none;
+          border: none;
+          height: 100px;
+          line-height: 100px;
+          font-weight: 600;
+          font-size: 36px;
+        }
+      }
+    }
+  }
