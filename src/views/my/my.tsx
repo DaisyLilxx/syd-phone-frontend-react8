@@ -1,5 +1,4 @@
 import "~/assets/css/my.less";
-import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Tabbar from "~/components/tabbar";
 import { useTypedSelector } from "~/hook/hook";
@@ -11,7 +10,6 @@ export default function My() {
   const UserStore = useTypedSelector((state) => state.userMessSlice);
   const HeaderStore = useTypedSelector((state) => state.headerSlice);
   console.log("UserStore", UserStore);
-  const weixinChat = window.localStorage.getItem("weixinChat") == "true";
   let loginRes = "";
   const goList = () => {
     if (loginRes || HeaderStore.headers["wechat-token"]) {
@@ -30,7 +28,7 @@ export default function My() {
   return (
     <div className="pageBg my">
       <div className="company">
-        <img src={Img} />
+        <img src={Img} alt="" />
         <div>
           {UserStore.userMess && UserStore.userMess?.username ? (
             <h3 className="name">{UserStore.userMess?.username}</h3>

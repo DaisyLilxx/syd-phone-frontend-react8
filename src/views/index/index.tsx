@@ -1,7 +1,7 @@
 import TabbarFun from "~/components/tabbar";
 // 1. 引入你需要的组件
 import { Tabs } from "react-vant";
-import { useState } from "react";
+// import { useState } from "react";
 import logo from "~/assets/images/index/font.png";
 import mapImg from "~/assets/images/index/home_tableview@2x.png";
 import company from "~/assets/images/index/company.png";

@@ -24,6 +24,7 @@ const CardCom: React.FC<ParentProps> = ({ isBig, data, children }) => {
       <div className="head">
         <img
           src={`${imgUrlPre}/dstp-op/rest/api/app/financial/picture/preview?path=${data.bankIconUrl}`}
+          alt=""
         />
         <span>
           {data.bank}｜{data.productName}

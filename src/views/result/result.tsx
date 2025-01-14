@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import CardCom from "./components/card";
 import { useNavigate } from "react-router-dom";
 import { useTypedSelector } from "~/hook/hook";
@@ -17,13 +17,12 @@ export default function Result() {
     navigate("/customerService");
   };
   useEffect(() => {
-    // 测试流水号 'CE202409181142190019'
     getCalculateResult({ serialNo: SerialNoStore.serialNo }).then((res) => {
       console.log("res", res);
       res.data && setList(res.data);
       setLoading(false);
     });
-  }, []);
+  }, [SerialNoStore.serialNo]);
   return (
     <div className="result">
       {loading ? <Loading className="comLoading" /> : ""}

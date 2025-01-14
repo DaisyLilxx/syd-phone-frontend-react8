@@ -1,4 +1,4 @@
-import { useEffect, useState,useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import "~/assets/css/limitCalculationEdit.less";
 import image1 from "~/assets/images/limitCalculationEdit/icon_gouxuan1.png";
 import image2 from "~/assets/images/limitCalculationEdit/able.png";
@@ -9,17 +9,18 @@ import image6 from "~/assets/images/limitCalculationEdit/able.png";
 import image7 from "~/assets/images/limitCalculationEdit/icon_gerenrongzi@2x.png";
 import image8 from "~/assets/images/limitCalculationEdit/disableP.png";
 import { Form, Button, Popup, Picker, Input } from "react-vant";
-import type { FormInstance } from 'react-vant';
+import type { FormInstance } from "react-vant";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { selection, matchProduct } from "~/apis/api";
 import type { Item, SubItem } from "~/types/index";
 //import { useSerialNoStore } from '~/stores/index'
-import {setSerialNoStore} from '~/store/modules/serialNo'
+import { setSerialNoStore } from "~/store/modules/serialNo";
 
 export default function LimitCalculationEdit() {
- let dispatch = useDispatch();
-  const [personDisable, setPersonDisable] = useState(true);
+  let dispatch = useDispatch();
+  let personDisable = true;
+  //const [personDisable, setPersonDisable] = useState(true);
   const [selectionObj, setSelectionObj] = useState<{ [key: string]: any }>({});
   const [isLoading, setIsLoading] = useState(false);
   const [revenueSources, setrevenueSources] = useState<string | number>("");
@@ -34,13 +35,13 @@ export default function LimitCalculationEdit() {
     string | number
   >("");
   const [projectType, setprojectType] = useState<string | number>("");
-  const [establishmentYear_text, setestablishmentYear_text] = useState("");
-  const [registrationLocation_text, setregistrationLocation_text] =
-    useState("");
-  const [brandManagement_text, setbrandManagement_text] = useState("");
-  const [involvingImportExportTrade_text, setinvolvingImportExportTrade_text] =
-    useState("");
-  const [projectType_text, setprojectType_text] = useState("");
+  //const [establishmentYear_text, setestablishmentYear_text] = useState("");
+  // const [registrationLocation_text, setregistrationLocation_text] =
+  //   useState("");
+  // const [brandManagement_text, setbrandManagement_text] = useState("");
+  // const [involvingImportExportTrade_text, setinvolvingImportExportTrade_text] =
+  //   useState("");
+  // const [projectType_text, setprojectType_text] = useState("");
   const [chooseLi, setchooseLi] = useState(0);
   const [isShow1016, setisShow1016] = useState(false);
   const [isShow1017, setisShow1017] = useState(false);
@@ -52,23 +53,24 @@ export default function LimitCalculationEdit() {
   const [currentPopKey, setcurrentPopKey] = useState<string>("");
   let navigate = useNavigate();
   const form = useRef<FormInstance | null>(null);
-  const getData = async () => {
-    let res = await selection();
-    console.log("selection-res",res,res.data,typeof(res.data));
-    res.data && (res.data).map((item: Item, index: number) => {
-      if (item.itemNo == "MV1001" && item.values.length) {
-        setrevenueSources(item?.values[0]?.value);
-        chooseSourceUl(0, item?.values[0]);
-      }
-      let newVal = selectionObj
-      newVal[item.itemNo] = item;
-      setSelectionObj(newVal)
-    });
-  };
 
   useEffect(() => {
+    const getData = async () => {
+      let res = await selection();
+      console.log("selection-res", res, res.data, typeof res.data);
+      res.data &&
+        res.data.forEach((item: Item, index: number) => {
+          if (item.itemNo === "MV1001" && item.values.length) {
+            setrevenueSources(item?.values[0]?.value);
+            chooseSourceUl(0, item?.values[0]);
+          }
+          let newVal = selectionObj;
+          newVal[item.itemNo] = item;
+          setSelectionObj(newVal);
+        });
+    };
     getData();
-  }, []);
+  }, [selectionObj]);
 
   const setChooseLiFun = (index: number) => {
     setchooseLi(index);
@@ -92,7 +94,7 @@ export default function LimitCalculationEdit() {
   };
 
   const onSubmit = (values: any) => {
-    console.log("onSubmit",values);
+    console.log("onSubmit", values);
     setIsLoading(true);
     let formData = {
       revenueSources: revenueSources,
@@ -104,19 +106,16 @@ export default function LimitCalculationEdit() {
     };
     matchProduct(formData)
       .then((res) => {
-        console.log("matchProduct-res-ppp",res);
-        if(res&& res.data){
-       
-  
-         console.log("matchProduct--serialNommmm",res.data?.serialNo);
+        console.log("matchProduct-res-ppp", res);
+        if (res && res.data) {
+          console.log("matchProduct--serialNommmm", res.data?.serialNo);
 
-         dispatch(setSerialNoStore(res.data?.serialNo))
+          dispatch(setSerialNoStore(res.data?.serialNo));
           //  serialNoStore.setSerialNoStore(data.data!.serialNo)
           setIsLoading(false);
           navigate("/productList");
           // router.push({ path: '/productList' })
         }
-        
       })
       .catch((e) => {
         setIsLoading(false);
@@ -127,43 +126,33 @@ export default function LimitCalculationEdit() {
     text: string;
     value: string;
   };
-  type PickerColumnOption = {
-    text?: React.ReactNode;
-    value?: string;
-    children?: PickerColumnOption[];
-    disabled?: boolean;
-  } & Record<string, any>;
-  type PickerColumn<T = PickerColumnOption> = (string | T)[];
-  
 
-  // 定义 Picker 选项的类型
-  interface PickerOption {
-    text: string;
-    value: number | string;
-  }
-  const onConfirm = (options:string,row:selectTypeItem) => {
+  const onConfirm = (options: string, row: selectTypeItem) => {
     let selectValue = row.value;
     let selectText = row.text;
     switch (currentPopKey) {
       case "MV1002":
         setestablishmentYear(selectValue);
-      //  setestablishmentYear_text(selectText);
+        //  setestablishmentYear_text(selectText);
         form.current?.setFieldValue("establishmentYear_text", selectText);
         break;
       case "MV1003":
         setregistrationLocation(selectValue);
-       // setregistrationLocation_text(selectText);
+        // setregistrationLocation_text(selectText);
         form.current?.setFieldValue("registrationLocation_text", selectText);
         break;
       case "MV1016":
         setbrandManagement(selectValue);
-      //  setbrandManagement_text(selectText);
+        //  setbrandManagement_text(selectText);
         form.current?.setFieldValue("brandManagement_text", selectText);
         break;
       case "MV1017":
         setinvolvingImportExportTrade(selectValue);
-       // setinvolvingImportExportTrade_text(selectText);
-        form.current?.setFieldValue("involvingImportExportTrade_text", selectText);
+        // setinvolvingImportExportTrade_text(selectText);
+        form.current?.setFieldValue(
+          "involvingImportExportTrade_text",
+          selectText
+        );
         break;
       case "MV1018":
         setprojectType(selectValue);
@@ -181,20 +170,26 @@ export default function LimitCalculationEdit() {
   };
   return (
     <div className="limitCalculationEdit">
-      <Form onFinish={onSubmit} required={true} ref={form} layout="vertical"  footer={
-        <Button
-          className="btn"
-          round
-          block
-          type="primary"
-          nativeType="submit"
-          disabled={isLoading}
-          loading={isLoading}
-          loading-text="提交中..."
-        >
-          提交
-        </Button>
-      }>
+      <Form
+        onFinish={onSubmit}
+        required={true}
+        ref={form}
+        layout="vertical"
+        footer={
+          <Button
+            className="btn"
+            round
+            block
+            type="primary"
+            nativeType="submit"
+            disabled={isLoading}
+            loading={isLoading}
+            loading-text="提交中..."
+          >
+            提交
+          </Button>
+        }
+      >
         <div className="formBlock">
           <div className="head">
             <h2>请填写您的基本信息</h2>
@@ -203,10 +198,10 @@ export default function LimitCalculationEdit() {
           <div className="cont comFormCont">
             <ul className="typeUl">
               <li
-                className={chooseLi == 0 ? "active" : ""}
+                className={chooseLi === 0 ? "active" : ""}
                 onClick={() => setChooseLiFun(0)}
               >
-                {chooseLi == 0 ? (
+                {chooseLi === 0 ? (
                   <img alt="" src={image1} className="check" />
                 ) : (
                   <img src={image2} alt="" className="check" />
@@ -216,7 +211,7 @@ export default function LimitCalculationEdit() {
                 <h2>企业融资</h2>
               </li>
               <li
-                className={chooseLi == 1 ? "active" : ""}
+                className={chooseLi === 1 ? "active" : ""}
                 onClick={() => setChooseLiFun(personDisable ? 0 : 1)}
               >
                 {personDisable ? (
@@ -224,8 +219,12 @@ export default function LimitCalculationEdit() {
                 ) : (
                   ""
                 )}
-                {chooseLi == 1 ? <img src={image5} className="check" /> : ""}
-                {!personDisable && chooseLi == 0 ? (
+                {chooseLi === 1 ? (
+                  <img src={image5} className="check" alt="" />
+                ) : (
+                  ""
+                )}
+                {!personDisable && chooseLi === 0 ? (
                   <img src={image6} alt="" className="check" />
                 ) : (
                   ""
@@ -254,7 +253,7 @@ export default function LimitCalculationEdit() {
                   (item: SubItem, index: number) => (
                     <li
                       key={index}
-                      className={sourceUlActive == index ? "active" : ""}
+                      className={sourceUlActive === index ? "active" : ""}
                       onClick={() => chooseSourceUl(index, item)}
                     >
                       {item.text}
@@ -373,8 +372,6 @@ export default function LimitCalculationEdit() {
             )}
           </div>
         </div>
-     
-        
       </Form>
       <Popup
         visible={showPicker}
@@ -384,11 +381,13 @@ export default function LimitCalculationEdit() {
       >
         <Picker
           title={popTit}
-           placeholder=""
+          placeholder=""
           className="comTimePickerC"
           columns={columns}
           onCancel={() => setshowPicker(false)}
-          onConfirm={(value:string, selectedRow:selectTypeItem) => onConfirm(value, selectedRow) }
+          onConfirm={(value: string, selectedRow: selectTypeItem) =>
+            onConfirm(value, selectedRow)
+          }
         />
       </Popup>
     </div>

@@ -68,7 +68,7 @@ export default function CompleteMess() {
     return () => {
       if (countTime) clearInterval(countTime);
     };
-  }, []);
+  }, [SerialNoStore.serialNo, countTime]);
   // setContactData 设置新值后不能马上获取，需要useEffect监听并执行回调
   useEffect(() => {
     if (JSON.stringify(contactData) !== "{}") {

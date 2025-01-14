@@ -27,53 +27,53 @@ export default function TabIndex() {
       <div className="stepWrap">
         <ul className="stepUl">
           <li>
-            <img src={Img1} />
+            <img src={Img1} alt="" />
             <p>加入数源</p>
           </li>
           <li>
             <Arrow />
           </li>
           <li>
-            <img src={Img2} />
+            <img src={Img2} alt="" />
             <p>数据发布</p>
           </li>
           <li>
             <Arrow />
           </li>
           <li>
-            <img src={Img3} />
+            <img src={Img3} alt="" />
             <p>数据管理</p>
           </li>
           <li>
             <Arrow />
           </li>
           <li>
-            <img src={Img4} />
+            <img src={Img4} alt="" />
             <p>数据应用</p>
           </li>
         </ul>
       </div>
       <div className="blockList">
         <div>
-          <img src={Img5} />
+          <img src={Img5} alt="" />
           <p>数据采集工具</p>
         </div>
         <div>
-          <img src={Img6} />
+          <img src={Img6} alt="" />
           <p>数据控制塔</p>
         </div>
         <div>
-          <img src={Img7} />
+          <img src={Img7} alt="" />
           <p>数据可视链</p>
         </div>
         <div>
-          <img src={Img8} />
+          <img src={Img8} alt="" />
           <p>融资数据集成</p>
         </div>
       </div>
       <div className="cardBlue">
         <p>快速测算数据信用额度</p>
-        <img src={Img9} />
+        <img src={Img9} alt="" />
         <button className="pgBtn" onClick={goPg}>
           立即评估
         </button>

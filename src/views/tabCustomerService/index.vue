@@ -9,7 +9,7 @@ const goHelp = () => {
       <p class="text bm10">微信扫码添加您的专属顾问</p>
       <p class="text">开启一对一咨询服务</p>
       <div class="codeWrap">
-        <img src="@/assets/images/dataAcquisition/18.png" />
+        <img src="@/assets/images/dataAcquisition/18.png" alt=""/>
       </div>
     </div>
     <!-- <div class="block2">

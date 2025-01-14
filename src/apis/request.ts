@@ -8,7 +8,6 @@ import type {
 } from "axios";
 // import { useSelector } from "react-redux";
 import store from "~/store/index";
-import type { Headers } from "~/types";
 // 创建 axios 实例
 const http: AxiosInstance = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL, // 你需要的接口地址
