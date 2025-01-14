@@ -131,7 +131,7 @@ export default function CompleteMess() {
   };
 
   return (
-    <div>
+    <div className="completeMessPage">
       {!isLoading ? (
         <div className="pageBg completeMess">
           <Form
